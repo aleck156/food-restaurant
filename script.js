@@ -27,3 +27,13 @@ const restaurant = {
     },
   },
 };
+
+/* DESTRUCTURING
++ ES6 feature
++ unpacking an object structure
++ break complex data structure into smaller data structures, down to primitives
+
+*/
+
+const [first, , second] = restaurant.categories;
+console.log(first, second);
