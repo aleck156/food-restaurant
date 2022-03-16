@@ -570,3 +570,83 @@ console.log(question.get(answer === question.get('correct')));
 
 // converting map into an array
 console.log([...question.entries()]);
+
+//------------------------------------------------------
+// STRINGS
+// are immutable
+// are of primitive type
+// all are case-sensitive
+// all methods return new strings, since strings are immutable
+// regular expressions can be applied to
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(airline.lastIndexOf('Portugal'));
+console.log(airline.slice(4, 10));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const lastChar = seat.slice(-1);
+  console.log(lastChar);
+  return lastChar === 'E' || lastChar === 'B';
+};
+
+console.log(checkMiddleSeat('11B'));
+console.log(checkMiddleSeat('23C'));
+console.log(checkMiddleSeat('3E'));
+
+// comparing emails
+const email = 'hello@jonas.com';
+const loginEmail = '   HeLLo@joNas.Com \n';
+
+const lowerEmail = loginEmail.toLowerCase().trim();
+console.log(lowerEmail === email);
+
+// replacing
+const priceGB = '288,97Eur';
+const priceUS = priceGB.replace(',', '.').replace('Eur', '$');
+console.log(priceGB, priceUS);
+
+// REGULAR EXPRESSIONS
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+console.log(announcement.replace(/door/g, 'gate'));
+
+// BOOLEANS
+// includes, startsWith, endsWith
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log(`You are NOT allowed on board!`);
+  } else {
+    console.log(`Welcome aboard!`);
+  }
+};
+
+checkBaggage(`I have a laptop, some Food and a pocket Knife`);
+checkBaggage('Socks and camera');
+checkBaggage('got some snacka and a gun for personal protection');
+
+console.log(...'a+very+nice+string'.split('+'));
+console.log('Thomas Anderson'.split(' '));
+const [firstName2, lastName2] = 'Thomas Anderson'.split(' ');
+
+const mergedStuff = ['Mr', firstName2, lastName2.toUpperCase()].join(' ');
+console.log(mergedStuff);
+
+const capitalizedName = function (name) {
+  const names = name.split(' ');
+  const capitalizedNames = [];
+  for (const word of names) {
+    // capitalizedNames.push(word[0].toUpperCase() + word.slice(1));s
+    capitalizedNames.push(word.replace(word[0], word[0].toUpperCase()));
+  }
+  return capitalizedNames;
+};
+
+console.log(capitalizedName('jessica ann smith davis').join(' '));
