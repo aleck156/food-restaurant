@@ -444,3 +444,54 @@ const allEntries = Object.entries(openingHours);
 for (const [day, { open: o, close: c }] of allEntries) {
   console.log(`On ${day}, we open at ${o} and close at ${c}`);
 }
+//------------------------------------------------------
+// SETS
+// a collection of unique values
+// creating a new set requires an iterable to be passed at
+// can hold a mix of different data types
+// no key-value pairs
+// order of elements in a set is irrelevant
+
+// MAIN USAGE: REMOVE DUPLICATED VALUES FROM ARRAYS
+
+const orderSets = new Set([
+  'Pasta',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+  13,
+  '13',
+  false,
+  'Pizza',
+  13,
+  true,
+  false,
+  27,
+]);
+console.log(orderSets);
+
+console.log(new Set('Aleksander'));
+
+console.log(orderSets.size); // size, not length!
+console.log(orderSets.has('Pizza'));
+console.log(orderSets.has('Bread'));
+orderSets.add('Garlic Bread');
+orderSets.add('Garlic Bread');
+
+orderSets.delete(13);
+console.log(orderSets);
+
+orderSets.forEach(elem => {
+  console.log(elem);
+});
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const diffStaff = new Set(staff);
+console.log(diffStaff.size);
+console.log(diffStaff);
+const uniqueStaff = [...diffStaff];
+console.log(uniqueStaff);
+
+// simplifying the above code
+console.log(new Set(staff).size);
