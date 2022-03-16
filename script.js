@@ -495,3 +495,78 @@ console.log(uniqueStaff);
 
 // simplifying the above code
 console.log(new Set(staff).size);
+
+//------------------------------------------------------
+// MAPS
+// keys can ahve any types!
+// in objects, keys are always strings
+// .set() method returns that map
+// this allows to chain the execution of adding new stuff
+const rest3 = new Map();
+rest3.set('name', 'Classico italiano');
+rest3.set(1, 'Firenze, Italy');
+rest3.set(2, 'Lisbon, Portugal');
+
+console.log(rest3.set('newKey', 'newHole'));
+
+rest3
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('closed', 23)
+  .set(true, 'We are open!')
+  .set(false, 'We are closed');
+
+// reading data from a map
+// .get(key)
+// data type matters here, though, so true != 'true' and 1 != '1'
+console.log(rest3.get('open'));
+console.log(rest3.get(false));
+
+const time = 8;
+console.log(rest3.get(rest3.get('open') < time && rest3.get('closed') > time));
+// clever, but totally unreadable!
+
+console.log(rest3.has('categories'));
+rest3.delete(2);
+// rest3.clear();
+console.log(rest3.size);
+
+const array7 = [1, 2];
+rest3.set(array7, 'Test');
+rest3.set(document.querySelector('h1'), 'heading');
+console.log(rest3);
+console.log(rest3.get(array7));
+
+// CREATING A MAP FROM SCRATCH
+// a better way to fill a map with a data
+// only use .set() when you want to expand an existing map
+const question = new Map([
+  ['question', 'What is the best programming language in the world'],
+  [1, 'English, dude, English!'],
+  [2, 'C'],
+  [3, 'Java'],
+  [4, 'JavaScript'],
+  ['correct', 4],
+  [true, 'Correct!'],
+  [false, 'Gay move!'],
+]);
+
+// CONVERTING AN OBJECT INTO A MAP
+console.log(question);
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(hoursMap);
+
+// ITERATING OVER MAP
+// maps are iterable
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt('Your answer: '));
+const answer = 4;
+
+console.log(question.get(answer === question.get('correct')));
+
+// converting map into an array
+console.log([...question.entries()]);
