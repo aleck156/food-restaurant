@@ -23,6 +23,6 @@ for (const flightData of flightArray) {
     .slice(0, 3)
     .toUpperCase()} to ${flightDestination
     .slice(0, 3)
-    .toUpperCase()} (${eventTime})`.padStart(50);
+    .toUpperCase()} (${eventTime.replace(':', 'h')})`.padStart(50);
   console.log(finalStr);
 }
