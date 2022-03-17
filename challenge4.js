@@ -10,14 +10,14 @@ btn.addEventListener('click', () => {
   const rows = textArea.value.split('\n');
   let marker = `✅`;
   for (const row of rows) {
-    const converted = underScoreToCamelCase(row.trim()).join('');
+    const converted = underScoreToCamelCase(row);
     console.log(`${converted.padEnd(25)} ${marker}`);
     marker += `✅`;
   }
 });
 
 const underScoreToCamelCase = function (row) {
-  const splittedRow = row.toLowerCase().split('_');
+  const splittedRow = row.toLowerCase().trim().split('_');
   const capitalized = [];
   // the first word is not to be capitalized, so it gets removed from the list
   capitalized.push(splittedRow.shift());
@@ -25,7 +25,7 @@ const underScoreToCamelCase = function (row) {
   for (const word of splittedRow) {
     capitalized.push(capitalize(word));
   }
-  return capitalized;
+  return capitalized.join('');
 };
 
 const capitalize = function (word) {
