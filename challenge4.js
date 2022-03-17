@@ -7,22 +7,22 @@ const btn = document.querySelector('button');
 const textArea = document.querySelector('textarea');
 
 btn.addEventListener('click', () => {
-  const inputData = textArea.value.split('\n');
+  const rows = textArea.value.split('\n');
   let marker = `✅`;
-  for (const word of inputData) {
-    const converted = underScoreToCamelCase(word.trim()).join('');
+  for (const row of rows) {
+    const converted = underScoreToCamelCase(row.trim()).join('');
     console.log(`${converted.padEnd(25)} ${marker}`);
     marker += `✅`;
   }
 });
 
-const underScoreToCamelCase = function (word) {
-  const splitted = word.toLowerCase().split('_');
+const underScoreToCamelCase = function (row) {
+  const splittedRow = row.toLowerCase().split('_');
   const capitalized = [];
   // the first word is not to be capitalized, so it gets removed from the list
-  capitalized.push(splitted.shift());
+  capitalized.push(splittedRow.shift());
 
-  for (const word of splitted) {
+  for (const word of splittedRow) {
     capitalized.push(capitalize(word));
   }
   return capitalized;
