@@ -643,10 +643,34 @@ const capitalizedName = function (name) {
   const names = name.split(' ');
   const capitalizedNames = [];
   for (const word of names) {
-    // capitalizedNames.push(word[0].toUpperCase() + word.slice(1));s
+    // capitalizedNames.push(word[0].toUpperCase() + word.slice(1));
     capitalizedNames.push(word.replace(word[0], word[0].toUpperCase()));
   }
   return capitalizedNames;
 };
 
 console.log(capitalizedName('jessica ann smith davis').join(' '));
+
+// PADDING A STRINGS
+const message = 'go to gate 23!';
+const newMessage = message.padStart(25, '_').padEnd(25 + message.length, '_');
+console.log(message.padStart(25, '_').padEnd(25 + message.length, '_').length);
+console.log(newMessage, newMessage.length);
+
+const maskCreditCard = function (number) {
+  const strNumber = `${number}`; // number + '' // String(number)
+  const last = strNumber.slice(-4);
+  console.log(last.padStart(strNumber.length, '*'));
+};
+
+maskCreditCard(1234234534564567);
+
+const message2 = 'Bad Weather... All Departures Delayed! ';
+console.log(message2.repeat(3));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line`.repeat(n));
+};
+
+planesInLine(3);
+planesInLine(12);
