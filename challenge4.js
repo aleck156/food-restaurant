@@ -5,11 +5,9 @@ document.body.append(document.createElement('button'));
 
 const btn = document.querySelector('button');
 const textArea = document.querySelector('textarea');
-const inputData = [];
 
 btn.addEventListener('click', () => {
   const inputData = textArea.value.split('\n');
-  s;
   let marker = `✅`;
   for (const word of inputData) {
     const converted = underScoreToCamelCase(word.trim()).join('');
