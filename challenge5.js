@@ -12,8 +12,6 @@ Departure from FAO to LIS (12h30)
 
 const flightArray = flights.split('+');
 
-// const flightInfo = [];
-
 const getFlightCode = function (flight) {
   return flight.slice(0, 3).toUpperCase();
 };
